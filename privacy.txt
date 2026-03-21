@@ -1,0 +1,9 @@
+Privacy Policy for eh Device Scanner
+
+Last Updated: March 21, 2026
+
+eh Device Scanner does not collect, store, or transmit any personal data or usage information.
+
+The app only performs local network scanning to discover devices on your network. All device discovery happens locally on your device and network. No data leaves your device.
+
+Contact: trip5@trip5.net
