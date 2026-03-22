@@ -11,7 +11,8 @@ plugins {
 // Load keystore properties from key.properties file
 val keystorePropertiesFile = rootProject.file("key.properties")
 val keystoreProperties = Properties()
-if (keystorePropertiesFile.exists()) {
+val hasReleaseKeystore = keystorePropertiesFile.exists()
+if (hasReleaseKeystore) {
     keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
@@ -38,17 +39,24 @@ android {
     }
 
     signingConfigs {
-        create("release") {
-            keyAlias = keystoreProperties.getProperty("keyAlias")
-            keyPassword = keystoreProperties.getProperty("keyPassword")
-            storeFile = keystoreProperties.getProperty("storeFile")?.let { file(it) }
-            storePassword = keystoreProperties.getProperty("storePassword")
+        if (hasReleaseKeystore) {
+            create("release") {
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+                storeFile = keystoreProperties.getProperty("storeFile")?.let { file(it) }
+                storePassword = keystoreProperties.getProperty("storePassword")
+            }
         }
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
+            // Use release signing if available, otherwise fall back to debug signing (for CI builds)
+            signingConfig = if (hasReleaseKeystore) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
         }
     }
 }
