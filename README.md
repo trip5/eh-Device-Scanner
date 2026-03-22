@@ -34,10 +34,11 @@ It is a discovery protocol implementable in Arduino and ESPHome-based firmware. 
 ## Installation
 
 ### Google Play Store
-1. Join the [Google Groups](https://groups.google.com/g/eh-device-scanner) (required for early testers)
-2. Install from [Play Store](https://play.google.com/apps/testing/com.ehdevices.eh_device_scanner) (may require joining the group)
+1. Join the [Google Groups](https://groups.google.com/g/eh-device-scanner) (required for early testers?)
+2. Install from [Play Store](https://play.google.com/store/apps/details?id=com.ehdevices.eh_device_scanner) (may require joining testers)
+3. Join the testers [here](https://play.google.com/apps/testing/com.ehdevices.eh_device_scanner) (if required)
 
-### Android
+### Android Side-load
 1. Download APK from [Releases](https://github.com/trip5/eh-Device-Scanner/releases).
 2. Enable "Install from Unknown Sources"
 3. Install and launch
