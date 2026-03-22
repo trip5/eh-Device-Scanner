@@ -1,4 +1,4 @@
-<img src="images/feature.png" width="50%">
+<img src="images/Feature.png" width="50%">
 
 # eh Device Scanner
 
